@@ -6,15 +6,11 @@ class Item:
 
     def __init__(self,name,price,quantity):
         self.name = name
-        if price > 0:
-            self.price = price
-        else:
-            print("Il prezzo deve essere > 0")
-        if quantity > 0:
-            self.quantity = quantity
-        else:
-            print("La qauntità deve essere > 0")
-
+        assert price >= 0, f"Il prezzo {price} è minore di 0"
+        self.price = price
+        assert quantity >= 0, f"La quantità {quantity} è minore di 0"
+        self.quantity = quantity
+        
     def get_name(self):
         return self.name
     def set_name(self,name):
@@ -23,18 +19,14 @@ class Item:
     def get_price(self):
         return self.price
     def set_price(self,price):
-        if price > 0:
-            self.price = price
-        else:
-            print("Il prezzo deve essere > 0")
+        assert price >= 0, f"Il prezzo {price} è minore di 0"
+        self.price = price
 
     def get_quantity(self):
         return self.quantity
     def set_quantity(self,quantity):
-        if quantity > 0:
-            self.quantity = quantity
-        else:
-            print("La qauntità deve essere > 0")
+        assert quantity >= 0, f"La quantità {quantity} è minore di 0"
+        self.quantity = quantity
 
     def calculate_total_price(self):
         return self.price * self.quantity
