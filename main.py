@@ -1,4 +1,4 @@
-# How to create a class:
+
 class Item:
     name = ""
     price = 0
@@ -18,10 +18,19 @@ class Item:
     def calculate_total_price(self):
         return self.price * self.quantity
 
-# How to create an instance of a class
-item1 = Item("Phone", 100, 5)
 
-# Calling methods from instances of a class:
-print(item1.calculate_total_price())
+
+if __name__ == "__main__":
+
+    item1 = Item("Phone", 100, 5)
+    total_price_1 = item1.calculate_total_price()
+    print("Prezzo Phone: ", total_price_1)
+
+
+    item2 = Item("Laptop", 1000, 3)
+    total_price_2 = item2.calculate_total_price()
+    print("Prezzo Laptop: ", total_price_2)
+
+
 
 
