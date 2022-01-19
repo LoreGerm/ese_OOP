@@ -23,12 +23,18 @@ class Item:
     def get_price(self):
         return self.price
     def set_price(self,price):
-        self.price = price
+        if price > 0:
+            self.price = price
+        else:
+            print("Il prezzo deve essere > 0")
 
     def get_quantity(self):
         return self.quantity
     def set_quantity(self,quantity):
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            print("La qauntità deve essere > 0")
 
     def calculate_total_price(self):
         return self.price * self.quantity
