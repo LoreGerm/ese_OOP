@@ -3,6 +3,8 @@ class Item:
     name = ""
     price = 0
     quantity = 0
+    pay_rate = 0.8
+    all_items = []
 
     def __init__(self,name,price,quantity):
         self.name = name
@@ -10,6 +12,8 @@ class Item:
         self.price = price
         assert quantity >= 0, f"La quantità {quantity} è minore di 0"
         self.quantity = quantity
+        item = [self.get_name(),self.get_price(),self.get_quantity()]
+        self.all_items.append(item)
         
     def get_name(self):
         return self.name
@@ -28,8 +32,19 @@ class Item:
         assert quantity >= 0, f"La quantità {quantity} è minore di 0"
         self.quantity = quantity
 
+    def get_pay_rate(self):
+        return self.pay_rate
+    def set_pay_rate(self,pay_rate):
+        self.pay_rate = pay_rate
+
+    def get_all_items(self):
+        return self.all_items
+
     def calculate_total_price(self):
         return self.price * self.quantity
+
+    def calculate_discout(self,discount=pay_rate):
+        return discount * self.price
 
 
 
@@ -40,6 +55,9 @@ if __name__ == "__main__":
 
     item2 = Item("Laptop", 1000, 3)
     print("Prezzo Laptop: ", item2.calculate_total_price())
+    print(item1.get_all_items())
+
+    print("Sconto Item1" ,item1.calculate_discout())
 
 
 
