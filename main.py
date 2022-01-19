@@ -36,13 +36,10 @@ class Item:
 if __name__ == "__main__":
 
     item1 = Item("Phone", 100, 5)
-    total_price_1 = item1.calculate_total_price()
-    print("Prezzo Phone: ", total_price_1)
-
+    print("Prezzo Phone: ", item1.calculate_total_price())
 
     item2 = Item("Laptop", 1000, 3)
-    total_price_2 = item2.calculate_total_price()
-    print("Prezzo Laptop: ", total_price_2)
+    print("Prezzo Laptop: ", item2.calculate_total_price())
 
 
 
