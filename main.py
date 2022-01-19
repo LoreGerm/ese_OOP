@@ -15,6 +15,21 @@ class Item:
         else:
             print("La qauntità deve essere > 0")
 
+    def get_name(self):
+        return self.name
+    def set_name(self,name):
+        self.name = name
+
+    def get_price(self):
+        return self.price
+    def set_price(self,price):
+        self.price = price
+
+    def get_quantity(self):
+        return self.quantity
+    def set_quantity(self,quantity):
+        self.quantity = quantity
+
     def calculate_total_price(self):
         return self.price * self.quantity
 
