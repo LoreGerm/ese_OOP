@@ -12,8 +12,8 @@ class Item:
         self.price = price
         assert quantity >= 0, f"La quantità {quantity} è minore di 0"
         self.quantity = quantity
-        item = [self.get_name(),self.get_price(),self.get_quantity()]
-        self.all_items.append(item)
+        #item = [self.get_name(),self.get_price(),self.get_quantity()]
+        self.all_items.append(self)
         
     def get_name(self):
         return self.name
@@ -46,6 +46,9 @@ class Item:
     def calculate_discout(self,discount=pay_rate):
         return discount * self.price
 
+    def __repr__(self):
+        return f"item({self.name}, {self.price}, {self.quantity})"
+
 
 
 if __name__ == "__main__":
@@ -58,6 +61,7 @@ if __name__ == "__main__":
     print(item1.get_all_items())
 
     print("Sconto Item1" ,item1.calculate_discout())
+    print(item1,", ", item2)
 
 
 
