@@ -60,5 +60,7 @@ if __name__ == "__main__":
     print("Sconto Item1" ,item1.calculate_discout())
 
 
+jcvhavc
+
 
 
