@@ -64,7 +64,6 @@ if __name__ == "__main__":
     print(item1,", ", item2)
 
 
-jcvhavc
 
 
 
