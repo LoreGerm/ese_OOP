@@ -1,3 +1,4 @@
+import csv
 
 
 class Item:
@@ -30,10 +31,21 @@ class Item:
 
     @staticmethod
     def is_integer(num):
-        if isinstance(num, int):
+        try:
+            int(num)
             return True
-        else:
+        except:
             return False
+
+    @staticmethod
+    def read_from_csv():
+        f = csv.DictReader(open('item.csv'))
+        a = []
+        for row in f:
+            if Item.is_integer(row['quantity']) == True:
+                a.append(row)
+        return a
+
 
 
 
@@ -48,6 +60,8 @@ if __name__ == "__main__":
 
     print("Sconto Item1" ,item1.calculate_discout())
     print(item1,", ", item2)
+
+    print(Item.read_from_csv())
 
 
 
