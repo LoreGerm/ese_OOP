@@ -38,14 +38,30 @@ class Item:
             return False
 
     @staticmethod
-    def read_from_csv(file):
+    def read_integer_from_csv(file):
         f = csv.DictReader(open(file))
         a = []
         for row in f:
-            if Item.is_integer(row['quantity']) == True:
+            if Item.is_integer(row['quantity']):
                 a.append(row)
         return a
 
+    @staticmethod
+    def write_from_csv(file,row):
+        f = csv.DictWriter(open(file))
+        f.writer.writerow(row)
+
+    def write_on_csv(self,file):
+        head = ['name','price','quantity']
+        a = Item.read_integer_from_csv(file)
+        a .append({'name': self.name, 'price': self.price, 'quantity': self.quantity})
+        with open(file, 'w', newline='') as f:
+            write = csv.DictWriter(f, fieldnames=head)
+            write.writeheader()
+            write.writerows(a)
+        
+       
+        
 
 
 
@@ -61,7 +77,8 @@ if __name__ == "__main__":
     print("Sconto Item1" ,item1.calculate_discout())
     print(item1,", ", item2)
 
-    print(Item.read_from_csv('item.csv'))
+    item2.write_on_csv('item.csv')
+    print(Item.read_integer_from_csv('item.csv'))
 
 
 
