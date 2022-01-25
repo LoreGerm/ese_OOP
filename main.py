@@ -70,8 +70,9 @@ class Item:
 
     @staticmethod
     def instantiate_from_csv(file,obj):
-        pass
-       
+        f = csv.DictReader(open(file))
+        for row in f:
+            pass
         
 
 
