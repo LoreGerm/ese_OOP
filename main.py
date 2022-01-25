@@ -47,18 +47,29 @@ class Item:
         return a
 
     @staticmethod
+    def read_csv(file):
+        f = csv.DictReader(open(file))
+        a = []
+        for row in f:
+            a.append(row)
+        return a
+
+    @staticmethod
     def write_from_csv(file,row):
         f = csv.DictWriter(open(file))
         f.writer.writerow(row)
 
     def write_on_csv(self,file):
         head = ['name','price','quantity']
-        a = Item.read_integer_from_csv(file)
+        a = Item.read_csv(file)
         a .append({'name': self.name, 'price': self.price, 'quantity': self.quantity})
         with open(file, 'w', newline='') as f:
             write = csv.DictWriter(f, fieldnames=head)
             write.writeheader()
             write.writerows(a)
+
+    def instantiate_from_csv():
+        pass
         
        
         
