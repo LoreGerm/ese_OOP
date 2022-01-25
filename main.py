@@ -68,9 +68,9 @@ class Item:
             write.writeheader()
             write.writerows(a)
 
-    def instantiate_from_csv():
+    @staticmethod
+    def instantiate_from_csv(file,obj):
         pass
-        
        
         
 
@@ -88,8 +88,7 @@ if __name__ == "__main__":
     print("Sconto Item1" ,item1.calculate_discout())
     print(item1,", ", item2)
 
-    item2.write_on_csv('item.csv')
-    print(Item.read_integer_from_csv('item.csv'))
+    print(Item.instantiate_from_csv('item.csv', 'item3'))
 
 
 
