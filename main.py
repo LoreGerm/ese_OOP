@@ -54,11 +54,6 @@ class Item:
             a.append(row)
         return a
 
-    @staticmethod
-    def write_from_csv(file,row):
-        f = csv.DictWriter(open(file))
-        f.writer.writerow(row)
-
     def write_on_csv(self,file):
         head = ['name','price','quantity']
         a = Item.read_csv(file)
